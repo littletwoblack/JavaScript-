@@ -1,0 +1,110 @@
+/*
+练习说明：请照着代码后面敲，然后删除，退出时候不做保存。这就是一个万用水字毛笔字帖。
+*/
+
+
+
+/*css的基本语法:选择器+css声明操作*/
+p
+{
+font-size: 20px;
+background-color: rgb(93, 214, 119);
+color: #000458;
+border-color: rgb(116, 231, 206);
+}
+/*css样式的优先级*/
+/*
+多重样式将层叠为一个
+
+样式表允许以多种方式规定样式信息。样式可以规定在单个的 HTML 元素中，在 HTML 页的头元素中，或在一个外部的 CSS 文件中。甚至可以在同一个 HTML 文档内部引用多个外部样式表。
+层叠次序
+
+当同一个 HTML 元素被不止一个样式定义时，会使用哪个样式呢？
+一般而言，所有的样式会根据下面的规则层叠于一个新的虚拟样式表中
+1.内联样式：写在HTML元素标签里面的,一般只在某元素只显示一次的特殊样式设置中使用
+2.内部样式：写在head中的style里面的，一般用来调整某页面的一些区别于通用样式的特殊设置。
+3.外部样式：外部的.css文件，一般用来设置通用样式
+4.浏览器中的样式声明：前3样都缺省设置
+*/
+
+/*id选择器和类选择器*/
+#id-name { }
+.class-name{ }
+p.class-name{ }
+p .class-name #id-name 选择器n {   }
+#redP p span em {    
+    /* 权值 = 100+1+1+1=103 */    
+    color:#FF0;/*黄色*/    
+    }  
+
+/*引入 link和@import的区别*/
+/*link除了引入css外，还可以定义其他的东西例如rel，而@import只能引入css*/
+/*加载顺序不一样，link是随着浏览器和页面一起加载，import是等载入完成以后再加载，网速慢的时候会暂时无样式*/
+/*
+ <link  rel="stylesheet" type="text/css" href="CSS-practice.css">
+ @import url(CSS-practice.css)
+*/
+
+
+
+/*
+CSS 背景
+
+CSS 背景属性用于定义HTML元素的背景。
+CSS 属性定义背景效果：
+background-color       背景色
+background-image       背景图
+background-repeat      设置背景图的重复平铺，可以设置在x水平重复，可设置在y垂直重复，可以设置不重复等。
+background-attachment  设置背景图固定还是滚动，fixed或者scroll，默认是scroll。
+background-position    改变图像在背景中的位置  center,top,buttom,left,right或百分比或长度值（以左上角为原点）
+*/
+
+body
+{   background-color: aquamarine;
+    background-image: url();
+    background-repeat: repeat-x;
+    background-position: right top;
+}
+/*简写*/
+body {background:#ffffff url('img_tree.png') no-repeat right top;}
+
+
+
+/*
+CSS Text(文本)
+可改变颜色、字符间距、对齐文本、装饰文本、对文本进行缩进等等
+color             颜色
+text-align        文本对齐方式，left或right或justify。
+text-decoration   文本修饰，下划线underline或line-through删除线或颜色等。
+text-transform    文本转换，大小写uppercase lowercase，首字母大写capitalize等
+text-indent       文本缩进，30px，20em
+word-spacing      单词间距。每个单词之间间隔距离。
+*/
+
+h1
+{  color: bisque;
+   text-align: justify;
+   text-decoration: underline;
+   text-transform: lowercase;
+   text-indent: 20px;
+   word-spacing: 10px;
+}
+
+/*
+CSS字体Font
+CSS字体属性定义字体，加粗，大小，文字样式。
+font-family    设置文本的字体系列，即一个系列可设置好几个字体，如果浏览器不支持第一种字体，
+               就会自动跳到下一种。超过一个单词的字体要加“”。
+font-style     主要是用于指定斜体文字的字体样式属性。这个属性有三个值：
+               normal正常 - 正常显示文本,italic斜体 - 以斜体字显示的文字,oblique倾斜的文字 - 文字向一边倾斜（和斜体非常类似，但不太支持）
+font-size      设置文本大小。
+
+*/
+
+p
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 18px;
+
+}
