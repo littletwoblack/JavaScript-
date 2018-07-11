@@ -16,9 +16,10 @@ border-color: rgb(116, 231, 206);
 /*
 多重样式将层叠为一个
 
-样式表允许以多种方式规定样式信息。样式可以规定在单个的 HTML 元素中，在 HTML 页的头元素中，或在一个外部的 CSS 文件中。甚至可以在同一个 HTML 文档内部引用多个外部样式表。
-层叠次序
+样式表允许以多种方式规定样式信息。样式可以规定在单个的 HTML 元素中，在 HTML 页的头元素中，或在一个外部的 CSS 文件中。
+甚至可以在同一个 HTML 文档内部引用多个外部样式表。
 
+层叠次序
 当同一个 HTML 元素被不止一个样式定义时，会使用哪个样式呢？
 一般而言，所有的样式会根据下面的规则层叠于一个新的虚拟样式表中
 1.内联样式：写在HTML元素标签里面的,一般只在某元素只显示一次的特殊样式设置中使用
@@ -27,15 +28,31 @@ border-color: rgb(116, 231, 206);
 4.浏览器中的样式声明：前3样都缺省设置
 */
 
+
+
+
 /*id选择器和类选择器*/
 #id-name { }
 .class-name{ }
 p.class-name{ }
 p .class-name #id-name 选择器n {   }
+/*Grouping Selectors 分组选择器*/
+h1,h2,p 
+{ 
+color:green; 
+}
+/*嵌套选择器*/
+.marked p 
+{ 
+color:white; 
+}
 #redP p span em {    
     /* 权值 = 100+1+1+1=103 */    
     color:#FF0;/*黄色*/    
     }  
+
+
+
 
 /*引入 link和@import的区别*/
 /*link除了引入css外，还可以定义其他的东西例如rel，而@import只能引入css*/
@@ -54,7 +71,7 @@ CSS 背景属性用于定义HTML元素的背景。
 CSS 属性定义背景效果：
 background-color       背景色
 background-image       背景图
-background-repeat      设置背景图的重复平铺，可以设置在x水平重复，可设置在y垂直重复，可以设置不重复等。
+background-repeat      设置背景图的重复平铺，可以设置在repeat-x水平重复，可设置在repeat-y垂直重复，可以设置不重复等。
 background-attachment  设置背景图固定还是滚动，fixed或者scroll，默认是scroll。
 background-position    改变图像在背景中的位置  center,top,buttom,left,right或百分比或长度值（以左上角为原点）
 */
@@ -64,6 +81,7 @@ body
     background-image: url();
     background-repeat: repeat-x;
     background-position: right top;
+    background-attachment: fixed;
 }
 /*简写*/
 body {background:#ffffff url('img_tree.png') no-repeat right top;}
@@ -106,5 +124,207 @@ p
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
     font-size: 18px;
-
 }
+
+/*
+CSS链接link
+
+链接的样式，可以用任何CSS属性（如颜色，字体，背景等）。
+特别的链接，可以有不同的样式，这取决于他们是什么状态。
+这四个链接状态是：
+a:link - 正常，未访问过的链接
+a:visited - 用户已访问过的链接
+a:hover - 当用户鼠标放在链接上时
+a:active - 链接被点击的那一刻
+*/
+
+a:link{color: aqua;
+       text-decoration: underline;
+       background-color: #fff;
+       }
+a:visited{color: aquamarine;
+          text-decoration:line-through;
+          background-color: black;
+}
+a:hover{  }
+a:active{  }
+
+
+/*
+CSS列表
+使用CSS，可以列出进一步的样式，并可用图像作列表项标记
+list-style-type         设置列表前面的圈圈或者数字。none：不使用项目符号 disc：实心圆 circle：空心圆 square：实心方块
+                        demical：阿拉伯数字 lower-alpha：小写英文字母 upper-alpha：大写英文字母
+                        lower-roman：小写罗马数字 upper-roman：大写罗马数字
+list-style-position     设置圈圈等标志在列表里面或者外面，看起来有点像缩进。inside或outside。
+list-style-image        设置列表标记项的小图标。就是列表前面的圈圈数字之类的，可以设置为小图像。
+*/
+
+ul.a{list-style-type: circle}
+ul.b{list-style-type: disc}
+ol.c{list-style-type: lower-greek}
+ol.d{list-style-type: decimal;
+     list-style-position: outside;
+     list-style-image: url()}
+/*简写*/
+ol.d{list-style: square url()}
+
+
+/*
+CSS表格
+使用css可以大大提高表格的美观程度
+border                   设置边框  1px   solid  black
+border-collapse          设置边框是折叠在一起还是分开，感觉能让设置了边框的效果无效掉，踏缩为一条线。
+width                    宽度
+height                   高度
+text-align               表格中文本的水平居中left或right或center
+vertical-align           垂直居中。
+padding                  设置td或者th的空格大小。
+*/
+
+table,th,td 
+{border: #FF0  1px solid ;
+ border-collapse: collapse;
+ width: 100%;
+ height:300px;
+ text-align: center;
+ vertical-align: bottom;
+}
+td,th
+{
+    padding: 5em;
+}
+
+/*
+CSS 盒子模型(Box Model)
+
+所有HTML元素可以看作盒子，在CSS中，"box model"这一术语是用来设计和布局时使用。
+CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。
+盒模型允许我们在其它元素和周围元素边框之间的空间放置元素。
+Margin（外边距）    - 清除边框区域。Margin没有背景颜色，它是完全透明
+Border（边框）      - 边框周围的填充和内容。边框是受到盒子的背景颜色影响
+Padding（内边距）   - 清除内容周围的区域。会受到框中填充的背景颜色影响
+Content（内容）     - 盒子的内容，显示文本和图像
+*/
+
+div.class-name
+{
+    margin: 10px;
+    margin-right: 20px;
+    border: 2px;
+    border-bottom-color: #FF0;
+    padding: 10px;
+    padding-top: 11px;
+    width: 220px;
+    height: 300px;
+    
+}
+
+/*
+边框样式属性指定要显示什么样的边界。
+border-style       属性用来定义边框的样式。none: 默认无边框 dotted: 定义一个点线框 dashed: 定义一个虚线框
+                   solid: 定义实线边界 double: 定义两个边界。 两个边界的宽度和border-width的值相同
+                   groove: 定义3D沟槽边界。效果取决于边界的颜色值 ridge: 定义3D脊边界。效果取决于边界的颜色值
+                   inset:定义一个3D的嵌入边框。效果取决于边界的颜色值 outset: 定义一个3D突出边框。 效果取决于边界的颜色值
+border-width       指定边框的宽度
+border-top-style   可以单独设置顶部
+border-left-color  可以单独设置左边
+*/
+p.class-name
+{
+    border-style: dashed;
+    border-width: 5px;
+    border-color: aquamarine;
+    border-left-color: aqua;
+    border-bottom-color: aquamarine;
+    border-top-style: dotted;
+}
+/*简写*/
+p.class-name
+{
+    border: #000458 7px solid;
+}
+/*
+outline  是border周围的一条线，可以突出显示元素。
+
+*/
+p.class-name
+{
+    outline-color: red;
+    outline-style: dotted;
+    outline-width: 2px;
+}
+
+/*
+Margin
+
+margin清除周围的元素（外边框）的区域。margin没有背景颜色，是完全透明的
+margin可以单独改变元素的上，下，左，右边距。也可以一次改变所有的属性。
+margin     auto或56%或50px等。
+*/
+p.class-name
+{
+    margin: 65px;
+    margin-bottom: 20px;
+    padding:25px 50px 75px 100px;/*上  右  下  左*/
+}
+
+/*
+CSS Display(显示) 与 Visibility（可见性）
+
+CSS display 属性和 visibility属性都可以用来隐藏某个元素，但是这两个属性有不同的定义,display隐藏后元素不占用
+页面空间，但是visibility隐藏的元素只是不可见而已，仍然占用页面空间，会影响页面布局。
+*/
+h1.class-name
+{
+    display: none;
+}
+h2.class-name
+{
+    visibility: hidden;
+}
+/*display还可以使用块级元素和内联元素相互转化*/
+li{display: inline;}/*li元素本来是要单独占用一行的，inline后就可以让好几个li在同一行了*/
+span{display:block}/*span本来是内联的，现在单独占用一行，是块级元素*/
+
+
+
+
+/*
+CSS Positioning(定位)
+
+CSS position 属性，允许您将布局的一部分与另一部分重叠，还可以完成多年来通常需要使用多个表格才能完成的任务。
+CSS定位属性允许你为一个元素定位。它也可以将一个元素放在另一个元素后面，并指定一个元素的内容太大时，应该发生什么。
+元素可以使用的顶部，底部，左侧和右侧属性定位。然而，这些属性无法工作，除非事先设定position属性。他们也有不同的工作
+方式，这取决于定位方法.
+有四种不同的定位方法。
+position     static默认我静态，fixed元素的位置相对于浏览器窗口是固定位置，即使窗口是滚动的它也不会移动。
+             Relative 相对定位元素的定位是相对其正常位置。Absolute 定位绝对定位的元素的位置相对于最近的
+             已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>
+z-index      属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）一个元素可以有正数或负数的堆叠顺序
+*/
+p.class-name-fixed
+{
+    position: fixed;
+    top: 30px;
+    right: 5px;
+}
+
+p.class-name-relative
+{
+    position: relative;
+    left: -20px;
+}
+
+p.class-name-absolute
+{
+    position: absolute;
+    left: 150px;
+    top:100px;
+    z-index: -1;/*堆叠在最底层*/
+}
+
+
+
+
+
