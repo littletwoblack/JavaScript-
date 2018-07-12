@@ -51,6 +51,23 @@ color:white;
     color:#FF0;/*黄色*/    
     }  
 
+/*
+ CSS 组合选择符
+
+CSS 组合选择符可以让你直观的明白选择器与选择器之间的关系。
+在 CSS3 中包含了四种组合方式:
+后代选取器(以空格分隔)
+子元素选择器(以大于号分隔）
+相邻兄弟选择器（以加号分隔）
+普通兄弟选择器（以波浪号分隔）
+*/
+div p  { }/*选取div后代元素中的p*/
+div>p  { }/*只选取div子元素中的p，只选儿子不选孙子*/
+div+p  { }/*相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。
+            如果需要选择紧接在另一个元素后的元素，而且二者有相同的父元素，可以使用相邻兄弟选择器（Adjacent
+             sibling selector）。*/
+div~p  { }/*选取了div之后所有相邻的p，注意，div之后，意思div内包括的p不被选中*/
+
 
 
 
@@ -137,6 +154,7 @@ a:visited - 用户已访问过的链接
 a:hover - 当用户鼠标放在链接上时
 a:active - 链接被点击的那一刻
 */
+/*a:link等是一种伪类的写法，CSS伪类是用来添加一些选择器的特殊效果。*/
 
 a:link{color: aqua;
        text-decoration: underline;
@@ -148,6 +166,44 @@ a:visited{color: aquamarine;
 }
 a:hover{  }
 a:active{  }
+
+/*
+CSS 伪类(Pseudo-classes)   CSS 伪元素
+CSS伪类是用来添加一些选择器的特殊效果。
+由于状态的变化是非静态的，所以元素达到一个特定状态时，它可能得到一个伪类的样式；当状态改变时，它又会失去这个样式。
+由此可以看出，它的功能和class有些类似，但它是基于文档之外的抽象，所以叫伪类。 
+:visited - 用户已访问过的链接
+:first-child     该伪类来选择元素的第一个子元素
+:first-letter	 p:first-letter	选择每个<p> 元素的第一个字母
+:first-line    	 p:first-line	选择每个<p> 元素的第一行
+:focus	         input:focus	选择元素输入后具有焦点
+:before	         p:before	在每个<p>元素之前插入内容
+:after	         p:after	在每个<p>元素之后插入内容
+:lang(language)	 p:lang(it)	为<p>元素的lang属性选择一个开始值
+*/
+
+a.red:visited {color:#FF0000;}       
+/*   <a class="red" href="css-syntax.html">CSS Syntax</a>    */
+
+p:first-child 
+{ 
+color:blue; 
+}   /*
+    <body> 
+    <p>会被选中的文本</p> 
+    <p>不会被选中的文本</p> 
+    </body> 
+    */
+p>i:first-child
+{
+    color: #FF0000
+}   /*选中p元素的子元素i中的第一个孩子*/
+p:first-child  i { }/*选中第一个p中的i*/
+p.class-name::first-line { }
+h1:after
+{
+    content: url(example.gif)
+}/*在每个h1后面都插入示例图片*/
 
 
 /*
@@ -325,6 +381,176 @@ p.class-name-absolute
 }
 
 
+/*
+CSS Float(浮动)
+
+CSS float 属性定义元素在哪个方向浮动，浮动元素会生成一个块级框，直到该块级框的外边缘碰到包含框或者其他的浮动框为止。
+Float     会使元素向左或向右移动，其周围的元素也会重新排列。Float（浮动），往往是用于图像，但它在布局时一样非常有用
+clear     属性指定元素两侧不能出现浮动元素。
+
+*/
+
+img
+{
+    float: right;
+}
+h1
+{
+    clear: both;/*h1将单独占据一行，h1两边都不会再有浮动元素*/
+}
 
 
+/*
+CSS 水平对齐(Horizontal Align)
+<h1><p><div>等块元素对齐，可设置   margin：auto
+可对元素中的文本设置text-align：center
+
+*/
+h1
+{
+    margin: auto;
+    width: 70%;
+    background-color: aquamarine;
+}
+
+span
+{
+    text-align: center
+}
+ 
+p
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}/*css3的写法*/
+
+
+
+
+
+
+
+/*CSS 导航栏
+
+熟练使用导航栏，对于任何网站都非常重要。
+使用CSS你可以转换成好看的导航栏而不是枯燥的HTML菜单。
+导航栏=链接列表
+
+作为标准的HTML基础一个导航栏是必须的。
+在我们的例子中我们将建立一个标准的HTML列表导航栏。
+导航条基本上是一个链接列表，所以使用 <ul> 和 <li> 元素非常有意义
+*/
+/*
+<ul> 
+<li><a href="default.asp">Home</a></li> 
+<li><a href="news.asp">News</a></li> 
+<li><a href="contact.asp">Contact</a></li> 
+<li><a href="about.asp">About</a></li> 
+</ul> 
+*/
+ul 
+{ 
+list-style-type:none; 
+margin:0; 
+padding:0; 
+}
+a
+{
+display:block;
+width:60px;
+background-color:#dddddd;
+}
+/*例子解析：
+list-style-type:none - 移除列表前小标志。一个导航栏并不需要列表标记
+移除浏览器的默认设置将边距和填充设置为0
+上面的例子中的代码是垂直和水平导航栏使用的标准代码。
+示例说明：
+display:block - 显示块元素的链接，让整体变为可点击链接区域（不只是文本），它允许我们指定宽度
+width:60px - 块元素默认情况下是最大宽度。我们要指定一个60像素的宽度
+*/
+
+/*水平导航栏
+
+有两种方法创建横向导航栏。使用内联或浮动的列表项。
+这两种方法都很好，但如果你想链接到具有相同的大小，你必须使用浮动的方法。
+
+*/
+li
+{
+    display: inline
+}
+
+/*浮动方法*/
+li
+{
+    float: left;
+}
+a
+{
+    display:block;
+    width: 600px;
+}/*实例解析：
+float:left - 使用浮动块元素的幻灯片彼此相邻
+display:block - 显示块元素的链接，让整体变为可点击链接区域（不只是文本），它允许我们指定宽度
+width:60px - 块元素默认情况下是最大宽度。我们要指定一个60像素的宽度
+display:inline; -默认情况下，
+元素是块元素。在这里，我们删除换行符之前和之后每个列表项，以显示一行 。*/
+
+
+
+
+/*
+CSS 下拉菜单
+
+使用 CSS 创建一个鼠标移动上去后显示下拉菜单的效果。
+*/
+/*
+<html>
+<head>
+
+  <title>下拉菜单实例|W3Cschool教程(w3cschool.cn)</title>
+  <meta charset="utf-8">
+  <style>
+*/
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+
+  /*总结就是：主要是设置先选中，然后设置display为none或者block，就能隐藏和显示了。*/
+
+/*
+  </style>
+</head>
+<body>
+
+<h2>鼠标移动后出现下拉菜单</h2>
+<p>将鼠标移动到指定元素上就能看到下拉菜单。</p>
+
+<div class="dropdown">
+  <span>鼠标移动到我这！</span>
+  <div class="dropdown-content">
+    <p>W3Cschool教程</p>
+    <p>www.w3cschool.cn</p>
+  </div>
+</div>
+
+</body>
+</html>
+*/
 
