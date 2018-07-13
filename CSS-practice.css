@@ -554,3 +554,176 @@ CSS 下拉菜单
 </html>
 */
 
+
+
+
+/*
+CSS 图片廊
+可以使用CSS创建图片廊
+*/
+
+
+
+/*
+CSS 图像透明/不透明
+
+opacity    使用CSS很容易创建透明的图像。
+注意：CSS Opacity属性是W3C的CSS3建议的一部分。
+*/
+img
+{
+    opacity: 0.4;
+    filter:alpha(opacity=40);/* For IE8 and earlier */
+}
+img:hover
+{
+    opacity: 1.0;
+    filter:alpha(opacity=100);/* For IE8 and earlier */
+}
+
+
+/*
+CSS 图像拼合技术
+
+图像拼合就是单个图像的集合。
+有许多图像的网页可能需要很长的时间来加载和生成多个服务器的请求。
+使用图像拼合会降低服务器的请求数量，并节省带宽。
+图像拼合 - 简单实例
+
+与其使用三个独立的图像，不如我们使用这种单个图像（"img_navsprites.gif"）：
+navigation images
+有了CSS，我们可以只显示我们需要的图像的一部分。
+*/
+#navlist{position:relative;}
+#navlist li{margin:0;padding:0;list-style:none;position:absolute;top:0;}
+#navlist li, #navlist a{height:44px;display:block;}
+
+#home{left:0px;width:46px;}
+#home{background:url('/statics/images/course/img_navsprites.gif') 0 0;}
+
+#prev{left:63px;width:43px;}
+#prev{background:url('/statics/images/course/img_navsprites.gif') -47px 0;}
+
+#next{left:129px;width:43px;}
+#next{background:url('/statics/images/course/img_navsprites.gif') -91px 0;}
+/*
+<ul id="navlist">
+  <li id="home"><a href="http://www.w3cschool.cn/css"></a></li>
+  <li id="prev"><a href="http://www.w3cschool.cn/css"></a></li>
+  <li id="next"><a href="http://www.w3cschool.cn/css"></a></li>
+</ul>
+
+实例解析：
+#navlist{position:relative;} - 位置设置相对定位，让里面的绝对定位
+#navlist li{margin:0;padding:0;list-style:none;position:absolute;top:0;} - margin和padding设置为0，列表样式被删除，所有列表项是绝对定位
+#navlist li, #navlist a{height:44px;display:block;} - 所有图像的高度是44px
+现在开始每个具体部分的定位和样式：
+#home{left:0px;width:46px;} - 定位到最左边的方式，以及图像的宽度是46px
+#home{background:url(img_navsprites.gif) 0 0;} - 定义背景图像和它的位置（左0px，顶部0px）
+#prev{left:63px;width:43px;} - 左外边距定位63px（＃home宽46px+项目之间的一些多余的空间），宽度为43px。
+#prev{background:url('img_navsprites.gif') -47px 0;} - 定义背景图像向右侧定位47px（＃home宽46px+分隔线的1px）
+#next{left:129px;width:43px;}- 左外边距定位129px(#prev 63px + #prev宽是43px + 剩余的空间), 宽度是43px.
+#next{background:url('img_navsprites.gif') no-repeat -91px 0;} - 定义背景图像向右侧定位91px（＃home 46px+1px的分割线+＃prev宽43px+1px的分隔线）
+
+*/
+
+
+/*
+CSS 媒体类型
+
+媒体类型允许你指定文件将如何在不同媒体呈现。该文件可以以不同的方式显示在屏幕上，在纸张上，或听觉浏览器等等。 
+某些 CSS 属性仅仅被设计为针对某些媒介。比方说 "voice-family" 属性被设计为针对听觉用户终端。其他一些属性可用于不同的媒体类型。例如，"font-size"属性可用于屏幕和印刷媒体，但有不同的值。屏幕和纸上的文件不同，通常需要一个更大的字体，sans - serif字体比较适合在屏幕上阅读，而serif字体更容易在纸上阅读。
+*/
+@media screen   /*用于电脑显示器*/
+{
+    p.class-name{ font-family: Verdana, Geneva, Tahoma, sans-serif}
+}
+@media print    /*用于打印机*/
+{
+    p.class-name{ font-family: 'Times New Roman', Times, serif}
+}
+@media screen,print
+{
+    p.class-name{ font-weight: bolder;}
+}
+@media all { }   /*用于所有媒体设备*/
+
+
+/* body默认的背景图*/ 
+body { 
+    background-image: url('img_smallflower.jpg'); 
+} 
+
+/* 使用媒体查询，设置当屏幕大于400px时，更换另一张背景图 */ 
+@media only screen and (min-width: 400px) { 
+    body { 
+        background-image: url('img_flowers.jpg'); 
+    } 
+}
+
+
+
+
+
+/*
+CSS 属性 选择器
+
+顾名思义，CSS 属性选择器就是指可以根据元素的属性以及属性值来选择元素。 
+具有特定属性的HTML元素样式
+
+具有特定属性的HTML元素样式不仅仅是class和id。
+注意：IE7和IE8需声明!DOCTYPE才支持属性选择器！IE6和更低的版本不支持属性选择器。
+属性选择器
+
+下面的例子是把包含标题（title）的所有元素变为蓝色：
+<body>
+<h2>Will apply to:</h2>
+<h1 title="Hello world">Hello world</h1>
+<a title="w3cschool" href="http://w3cschool.cn">w3cschool</a>
+<hr>
+<h2>Will not apply to:</h2>
+<p>Hello!</p>
+</body>
+*/
+
+[title]
+{
+    color:blue;
+}
+
+/*
+属性和值选择器
+
+下面的实例改变了标题title='w3cschool'元素的边框样式:
+*/
+[title=w3cschool]
+{
+   border: 5px solid  blue;
+}
+/*
+属性和值的选择器 - 多值
+
+下面是包含指定值的title属性的元素样式的例子,即约等于，只要包含目标字符串就可以了，使用（~）分隔属性和值:
+包含指定值的lang属性的元素样式的例子，使用（|）分隔属性和值:
+表单样式：属性选择器样式无需使用class或id的形式:
+*/
+[title~=hello]
+{
+    color:blue;
+}
+[lang |=en]
+{
+    color: aquamarine;
+}
+input[type="text"]
+{
+    width: 150px;
+    display: block;
+    margin-bottom: 50px;
+    background-color: yellow;
+}
+input[type="button"]
+{
+    background-color: green
+    
+}

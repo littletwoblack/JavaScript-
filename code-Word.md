@@ -12,3 +12,8 @@ Dimension       尺寸
 Display         显示
 Visibility      可见性
 inherit         继承，遗传
+opacity         不透明
+filter          过滤，筛选
+anchor          锚点，这是为什么链接的标签会写成<a>
+href            超文本引用（hypertext reference）；超链接
+audio           声音的；[声] 音频的，[声] 声频的
