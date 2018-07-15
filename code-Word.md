@@ -17,3 +17,9 @@ filter          过滤，筛选
 anchor          锚点，这是为什么链接的标签会写成<a>
 href            超文本引用（hypertext reference）；超链接
 audio           声音的；[声] 音频的，[声] 声频的
+coordinates     坐标
+caption         n. 标题；字幕；说明；逮捕vt. 加上说明；加上标题
+division        层
+legend          n. 传奇；说明；图例；刻印文字
+embed           栽种；使嵌入，使插入；使深留脑中
+cursor          n. 光标；（计算尺的）[计] 游标，指针

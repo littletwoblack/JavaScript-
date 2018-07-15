@@ -3,7 +3,6 @@
 */
 
 
-
 /*css的基本语法:选择器+css声明操作*/
 p
 {
@@ -240,7 +239,7 @@ padding                  设置td或者th的空格大小。
 
 table,th,td 
 {border: #FF0  1px solid ;
- border-collapse: collapse;
+ /*border-collapse:collapse;*/
  width: 100%;
  height:300px;
  text-align: center;
