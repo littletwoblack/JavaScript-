@@ -23,3 +23,18 @@ division        层
 legend          n. 传奇；说明；图例；刻印文字
 embed           栽种；使嵌入，使插入；使深留脑中
 cursor          n. 光标；（计算尺的）[计] 游标，指针
+concat          合并多个数组；合并多个字符串
+reverse         反转，倒转。
+component       组件
+props           支撑，支持维持，后盾
+bind            绑定
+rect            矩形
+stroke          划（划船游泳中那个划的动作）
+attribute       属性
+gradient        坡度，倾斜度，渐变
+append          附加，贴上
+pattern         样品
+transaction     事务，交易，办理
+terminate       vt. 使终止；使结束；解雇
+socket          n. 插座；窝，穴；牙槽vt. 给…配插座
+rotate          vt. 使旋转；使转动；使轮流
