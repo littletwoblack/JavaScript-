@@ -38,3 +38,8 @@ transaction     事务，交易，办理
 terminate       vt. 使终止；使结束；解雇
 socket          n. 插座；窝，穴；牙槽vt. 给…配插座
 rotate          vt. 使旋转；使转动；使轮流
+skew            n. 斜交；歪斜adj. 斜交的；歪斜的vt. 使歪斜
+Gradients       渐变
+scale           n. 规模；比例；鳞；刻度；天平；数值范围
+stretch         伸展，延伸
+wrap            包，缠绕

@@ -2,4 +2,275 @@
 
 /*
   CSS3语言开发是朝着模块化发展的。
+
+  CSS3 简介
+
+    CSS3已经完全向后兼容，所以你就不必改变现有的设计。浏览器一般情况下都会支持CSS2。
+    CSS3 模块
+
+    CSS3被拆分为"模块"。旧规范已拆分成小块，还增加了新的。
+    一些最重要CSS3模块如下：
+    选择器
+    盒模型
+    背景和边框
+    文字特效
+    2D/3D转换
+    动画
+    多列布局
+    用户界面
 */
+
+
+
+/*
+  CSS3 边框
+
+    用CSS3，您可以创建圆角边框，添加阴影框，并作为边界的形象而不使用设计程序（如Photoshop等作图软件），极大地帮助您节省了很多时间。
+    而在本节中，您将了解以下的边框属性有：
+    border-image	设置所有边框图像的速记属性。	
+    border-radius	一个用于设置所有四个边框- *-半径属性的速记属性	
+    box-shadow	附加一个或多个下拉框的阴影
+*/
+/*在div中添加圆角元素：*/
+div 
+{ 
+border:2px solid; 
+border-radius:25px; 
+}
+/*CSS3中的box-shadow属性被用来添加阴影:
+实例
+在div中添加box-shadow属性*/
+div 
+{ 
+box-shadow: 10px 10px 5px #888888; 
+}
+/*
+有了CSS3的border-image属性，你可以使用图像创建一个边框：
+border-image属性允许你指定一个图片作为边框！用于创建上文边框的原始图像：
+实例
+在div中使用图片创建边框*/
+div 
+{ 
+border-image:url(border.png) 30 30 round; 
+-webkit-border-image:url(border.png) 30 30 round; /* Safari 5 and older */ 
+-o-border-image:url(border.png) 30 30 round; /* Opera */ 
+}
+
+/*
+  CSS3 背景
+
+    CSS3更新了几个新的背景属性，提供更大背景元素控制，通过这几个背景属性，您能够做出更加精美的样式，。
+    在本节中您将了解以下4种背景属性：
+    background-image
+    background-clip	规定背景的绘制区域。	3
+    background-origin	规定背景图片的定位区域。	3
+    background-size	规定背景图片的尺寸。
+*/
+
+/*CSS3中可以通过background-image属性添加背景图片。
+不同的背景图像和图像用逗号隔开，所有的图片中显示在最顶端的为第一张。
+实例*/
+#example1 { 
+background-image: url(img_flwr.gif), url(paper.gif); /*两张图片是重叠的*/
+background-position: right bottom, left top; 
+background-repeat: no-repeat, repeat; 
+}
+/*可以给不同的图片设置多个不同的属性
+实例*/
+#example1 { 
+background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat; 
+background-size:80px 60px; 
+}
+/*伸展背景图像完全填充内容区域：*/
+div 
+{ 
+background:url(img_flwr.gif); 
+background-size:100% 100%; 
+background-repeat:no-repeat; 
+}
+
+/*background-Origin属性指定了背景图像的位置区域。
+content-box, padding-box,和 border-box区域内可以放置背景图像。
+在 content-box 中定位背景图片：*/
+div 
+{ 
+background:url(img_flwr.gif); 
+background-repeat:no-repeat; 
+background-size:100% 100%; 
+background-origin:content-box; 
+}
+/*background-clip背景剪裁属性是从指定位置开始绘制
+实例*/
+#example1 { 
+border: 10px dotted black; 
+padding: 35px; 
+background: yellow; 
+background-clip: content-box; 
+}
+
+
+
+/*
+  CSS3 渐变（Gradients）
+
+线性渐变
+CSS3 渐变（gradients）可以让你在两个或多个指定的颜色之间显示平稳的过渡。
+以前，你必须使用图像来实现这些效果。但是，通过使用 CSS3 渐变（gradients），你可以减少下载的事件和宽带的使用。此外，渐变效果的元素在放大时看起来效果更好，因为渐变（gradient）是由浏览器生成的。
+CSS3 定义了两种类型的渐变（gradients）：
+线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向
+径向渐变（Radial Gradients）- 由它们的中心定义
+*/
+
+
+
+/*CSS3 线性渐变
+
+为了创建一个线性渐变，你必须至少定义两种颜色结点。颜色结点即你想要呈现平稳过渡的颜色。同时，你也可以设置一个起点和一个方向（或一个角度）。
+线性渐变的实例：
+线性渐变
+语法
+background: linear-gradient(direction, color-stop1, color-stop2, ...);
+*/
+#grad { 
+    background: -webkit-linear-gradient(red, blue); /* Safari 5.1 - 6.0 */ 
+    background: -o-linear-gradient(red, blue); /* Opera 11.1 - 12.0 */ 
+    background: -moz-linear-gradient(red, blue); /* Firefox 3.6 - 15 */ 
+    background: linear-gradient(red, blue); /* 标准的语法 */ 
+    /*默认情况下，是从上到下的渐变，下面展示从左到右的渐变*/
+    background: linear-gradient(to right, red , blue); /* 标准的语法 */ 
+    /*从左上角到右下角*/
+    background: linear-gradient(to bottom right, red , blue); /* 标准的语法 */ 
+    /*可以按照角度渐变，向上是0deg，向左是-90deg，向下是180deg，向右是90deg*/
+    background: linear-gradient(180deg, red, blue); /* 标准的语法 */ 
+    /*多颜色节点渐变*/
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+    background: linear-gradient(red 10%, green 85%, blue 90%);/*不均匀分布*/
+    /*重复的线性渐变*/
+    background: repeating-linear-gradient(red, yellow 10%, green 20%); 
+  }
+
+  /*
+    CSS3 径向渐变
+
+        径向渐变由它的中心定义。
+        为了创建一个径向渐变，你也必须至少定义两种颜色结点。颜色结点即你想要呈现平稳过渡的颜色。同时，你也可以指定渐变的中心、形状（原型或椭圆形）、大小。默认情况下，渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落）。
+  */
+  #grad { 
+    background: -webkit-radial-gradient(red, green, blue); /* Safari 5.1 - 6.0 */ 
+    background: -o-radial-gradient(red, green, blue); /* Opera 11.6 - 12.0 */ 
+    background: -moz-radial-gradient(red, green, blue); /* Firefox 3.6 - 15 */ 
+    /*默认情况下，是从中心开始，颜色均匀的渐变*/
+    background: radial-gradient(red, green, blue); /* 标准的语法 */ 
+    /*颜色不均匀的渐变*/
+    background: radial-gradient(red 5%, green 15%, blue 60%); /* 标准的语法 */ 
+    /*shape 参数定义了形状。它可以是值 circle 或 ellipse。其中，circle 表示圆形，ellipse 表示椭圆形。默认值是 ellipse。*/
+    background: radial-gradient(circle, red, yellow, green);
+    /*重复的径向渐变*/
+    background: repeating-radial-gradient(red, yellow 10%, green 15%); 
+  }
+
+
+
+  /*
+    CSS3 文本效果
+
+        CSS3中包含几个新的文本特征。
+        在本节中您将了解以下文本属性：
+        text-shadow
+        box-shadow
+        text-overflow
+        word-wrap
+        word-break
+        hanging-punctuation	规定标点字符是否位于线框之外。	
+        punctuation-trim	规定是否对标点字符进行修剪。	
+        text-align-last	    设置如何对齐最后一行或紧挨着强制换行符之前的行。	
+        text-emphasis	    向元素的文本应用重点标记以及重点标记的前景色。	
+        text-justify	    规定当  text-align 设置为 "justify" 时所使用的对齐方法。	
+        text-outline	    规定文本的轮廓。	
+        text-overflow	    规定当文本溢出包含元素时发生的事情。	
+        text-shadow	        向文本添加阴影。	
+        text-wrap	        规定文本的换行规则。	
+        word-break	        规定非中日韩文本的换行规则。	
+        word-wrap	        允许对长的不可分割的单词进行分割并换行到下一行。
+*/
+h1
+{
+    text-shadow: 5px 5px 5px #FF0000;
+}
+
+
+/*
+  CSS3 @font-face 规则
+
+    在CSS3之前，web设计师必须使用已在用户计算机上安装好的字体，不能够使用离线字体，不过通过CSS3，web设计师可以使用他们喜欢的任意字体。
+    当您找到或购买到希望使用的字体时，可将该字体文件存放到web服务器上，它会在需要时被自动下载到用户的计算机上。
+    您"自己的"的字体是在 CSS3 @font-face 规则中定义的。
+*/
+
+
+
+/*
+  2D 转换
+
+    在本章您将了解2D变换方法：
+    translate()
+    rotate()
+    scale()
+    skew()
+    matrix()
+    matrix(n,n,n,n,n,n)	定义 2D 转换，使用六个值的矩阵。
+    translate(x,y)	    定义 2D 转换，沿着 X 和 Y 轴移动元素。
+    translateX(n)	    定义 2D 转换，沿着 X 轴移动元素。
+    translateY(n)	    定义 2D 转换，沿着 Y 轴移动元素。
+    scale(x,y)	        定义 2D 缩放转换，改变元素的宽度和高度。
+    scaleX(n)	        定义 2D 缩放转换，改变元素的宽度。
+    scaleY(n)	        定义 2D 缩放转换，改变元素的高度。
+    rotate(angle)   	定义 2D 旋转，在参数中规定角度。
+    skew(x-angle,y-angle)	定义 2D 倾斜转换，沿着 X 和 Y 轴。
+    skewX(angle)	    定义 2D 倾斜转换，沿着 X 轴。
+    skewY(angle)	    定义 2D 倾斜转换，沿着 Y 轴。
+*/
+
+/*
+  3D 转换方法
+
+    函数	                    描述
+    matrix3d(n,n, n,n,n,n ,
+    n,n,n ,n,n,n, n,n,n,n )     定义 3D 转换，使用 16 个值的 4x4 矩阵。
+    translate3d(x,y,z)	        定义 3D 转化。
+    translateX(x)	            定义 3D 转化，仅使用用于 X 轴的值。
+    translateY(y)	            定义 3D 转化，仅使用用于 Y 轴的值。
+    translateZ(z)	            定义 3D 转化，仅使用用于 Z 轴的值。
+    scale3d(x,y,z)	            定义 3D 缩放转换。
+    scaleX(x)	                定义 3D 缩放转换，通过给定一个 X 轴的值。
+    scaleY(y)	                定义 3D 缩放转换，通过给定一个 Y 轴的值。
+    scaleZ(z)	                定义 3D 缩放转换，通过给定一个 Z 轴的值。
+    rotate3d(x,y,z,angle)	    定义 3D 旋转。
+    rotateX(angle)	            定义沿 X 轴的 3D 旋转。
+    rotateY(angle)	            定义沿 Y 轴的 3D 旋转。
+    rotateZ(angle)      	    定义沿 Z 轴的 3D 旋转。
+    perspective(n)	            定义 3D 转换元素的透视视图。
+*/
+
+/*
+  CSS3 过渡
+
+CSS3中，我们为了添加某种效果可以从一种样式转变到另一个的时候，无需使用Flash动画或JavaScript。用鼠标移过下面的元素：
+*/
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 2s, transform 2s;
+    
+}
+
+div:hover {
+    width: 200px;
+    height: 200px;
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+    
+}
+
